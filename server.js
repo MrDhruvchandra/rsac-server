@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const wkx = require('wkx');
 const { Client } = require('pg');
+const { config } = require('dotenv');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -183,6 +185,6 @@ app.get('/petrolpump', async (req, res) => {
 });
  
 // Start the server
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
